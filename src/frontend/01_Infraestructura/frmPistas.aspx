@@ -145,11 +145,10 @@
             <div class="col-md-6">
                 <label class="form-label small fw-semibold">Tipo de superficie *</label>
                 <asp:DropDownList ID="ddlSuperficie" runat="server" CssClass="form-select form-select-sm">
-                    <asp:ListItem Text="Asfalto" Value="Asfalto"></asp:ListItem>
-                    <asp:ListItem Text="Concreto" Value="Concreto"></asp:ListItem>
-                    <asp:ListItem Text="Grava" Value="Grava"></asp:ListItem>
-                    <asp:ListItem Text="Tierra" Value="Tierra"></asp:ListItem>
-                    <asp:ListItem Text="Césped" Value="Césped"></asp:ListItem>
+                    <asp:ListItem Text="Asfalto" Value="ASFALTO"></asp:ListItem>
+                    <asp:ListItem Text="Concreto" Value="CONCRETO"></asp:ListItem>
+                    <asp:ListItem Text="Grava" Value="GRAVA"></asp:ListItem>
+                    <asp:ListItem Text="Césped" Value="CESPED"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="col-md-4">

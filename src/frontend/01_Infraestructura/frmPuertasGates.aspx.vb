@@ -106,6 +106,7 @@ Partial Public Class frmPuertasGates
                 If ddlSeccionModal.Items.FindByValue(row("ID_SECCION").ToString()) IsNot Nothing Then
                     ddlSeccionModal.SelectedValue = row("ID_SECCION").ToString()
                 End If
+                Session("ModalTerminalId") = ddlTerminalModal.SelectedValue
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "modal", "abrirModalEditar();", True)
             End If
         Catch ex As Exception

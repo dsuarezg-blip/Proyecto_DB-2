@@ -79,6 +79,7 @@ Partial Public Class frmVipLounge
                 If ddlTerminalModal.Items.FindByValue(row("ID_TERMINAL").ToString()) IsNot Nothing Then
                     ddlTerminalModal.SelectedValue = row("ID_TERMINAL").ToString()
                 End If
+                Session("ModalTerminalId") = ddlTerminalModal.SelectedValue
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "modal", "abrirModalEditar();", True)
             End If
         Catch ex As Exception
@@ -91,7 +92,7 @@ Partial Public Class frmVipLounge
             Dim id As Integer = Convert.ToInt32(hfIdVip.Value)
             Dim params As New List(Of OracleParameter)
             If id = 0 Then
-                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlTerminalModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlTerminalModal.SelectedValue <> "", ddlTerminalModal.SelectedValue, If(Session("ModalTerminalId") IsNot Nothing, Session("ModalTerminalId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_nombre", OracleDbType.Varchar2) With {.Value = txtNombre.Text.Trim()})
                 params.Add(New OracleParameter("p_operador", OracleDbType.Varchar2) With {.Value = txtOperador.Text.Trim()})
                 params.Add(New OracleParameter("p_capacidad", OracleDbType.Int32) With {.Value = If(txtCapacidad.Text.Trim() = "", DBNull.Value, Convert.ToInt32(txtCapacidad.Text.Trim()))})
@@ -100,7 +101,7 @@ Partial Public Class frmVipLounge
                 MostrarToast("success", "VIP Lounge registrado correctamente.")
             Else
                 params.Add(New OracleParameter("p_id_vip", OracleDbType.Int32) With {.Value = id})
-                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlTerminalModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlTerminalModal.SelectedValue <> "", ddlTerminalModal.SelectedValue, If(Session("ModalTerminalId") IsNot Nothing, Session("ModalTerminalId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_nombre", OracleDbType.Varchar2) With {.Value = txtNombre.Text.Trim()})
                 params.Add(New OracleParameter("p_operador", OracleDbType.Varchar2) With {.Value = txtOperador.Text.Trim()})
                 params.Add(New OracleParameter("p_capacidad", OracleDbType.Int32) With {.Value = If(txtCapacidad.Text.Trim() = "", DBNull.Value, Convert.ToInt32(txtCapacidad.Text.Trim()))})

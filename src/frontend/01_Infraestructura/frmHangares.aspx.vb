@@ -82,6 +82,7 @@ Partial Public Class frmHangares
                 If ddlAeropuertoModal.Items.FindByValue(row("ID_AEROPUERTO").ToString()) IsNot Nothing Then
                     ddlAeropuertoModal.SelectedValue = row("ID_AEROPUERTO").ToString()
                 End If
+                Session("ModalAeropuertoId") = ddlAeropuertoModal.SelectedValue
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "modal", "abrirModalEditar();", True)
             End If
         Catch ex As Exception
@@ -94,7 +95,7 @@ Partial Public Class frmHangares
             Dim id As Integer = Convert.ToInt32(hfIdHangar.Value)
             Dim params As New List(Of OracleParameter)
             If id = 0 Then
-                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlAeropuertoModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlAeropuertoModal.SelectedValue <> "", ddlAeropuertoModal.SelectedValue, If(Session("ModalAeropuertoId") IsNot Nothing, Session("ModalAeropuertoId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_nombre", OracleDbType.Varchar2) With {.Value = txtNombre.Text.Trim()})
                 params.Add(New OracleParameter("p_tipo", OracleDbType.Varchar2) With {.Value = ddlTipo.SelectedValue})
                 params.Add(New OracleParameter("p_capacidad_aeros", OracleDbType.Int32) With {.Value = If(txtCapacidad.Text.Trim() = "", DBNull.Value, Convert.ToInt32(txtCapacidad.Text.Trim()))})
@@ -104,7 +105,7 @@ Partial Public Class frmHangares
                 MostrarToast("success", "Hangar registrado correctamente.")
             Else
                 params.Add(New OracleParameter("p_id_hangar", OracleDbType.Int32) With {.Value = id})
-                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlAeropuertoModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlAeropuertoModal.SelectedValue <> "", ddlAeropuertoModal.SelectedValue, If(Session("ModalAeropuertoId") IsNot Nothing, Session("ModalAeropuertoId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_nombre", OracleDbType.Varchar2) With {.Value = txtNombre.Text.Trim()})
                 params.Add(New OracleParameter("p_tipo", OracleDbType.Varchar2) With {.Value = ddlTipo.SelectedValue})
                 params.Add(New OracleParameter("p_capacidad_aeros", OracleDbType.Int32) With {.Value = If(txtCapacidad.Text.Trim() = "", DBNull.Value, Convert.ToInt32(txtCapacidad.Text.Trim()))})

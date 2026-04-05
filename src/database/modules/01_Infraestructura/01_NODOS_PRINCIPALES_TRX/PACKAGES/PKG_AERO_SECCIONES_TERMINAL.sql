@@ -1,36 +1,4 @@
-CREATE OR REPLACE PACKAGE PKG_AERO_SECCIONES_TERMINAL AS
-    /**
-     * Package: PKG_AERO_SECCIONES_TERMINAL
-     * Descripción: Gestión de secciones (Alineado con DDL real: tipo, area_m2).
-     */
-
-    PROCEDURE pr_insertar (
-        p_id_terminal IN NUMBER,
-        p_nombre      IN VARCHAR2,
-        p_tipo        IN VARCHAR2,
-        p_nivel       IN NUMBER,
-        p_area_m2     IN NUMBER
-    );
-
-    PROCEDURE pr_actualizar (
-        p_id_seccion  IN NUMBER,
-        p_id_terminal IN NUMBER,
-        p_nombre      IN VARCHAR2,
-        p_tipo        IN VARCHAR2,
-        p_nivel       IN NUMBER,
-        p_area_m2     IN NUMBER,
-        p_activa      IN CHAR
-    );
-
-    PROCEDURE pr_listar (
-        p_cursor OUT SYS_REFCURSOR
-    );
-
-END PKG_AERO_SECCIONES_TERMINAL;
-/
-
 CREATE OR REPLACE PACKAGE BODY PKG_AERO_SECCIONES_TERMINAL AS
-
     PROCEDURE pr_insertar (
         p_id_terminal IN NUMBER,
         p_nombre      IN VARCHAR2,
@@ -47,7 +15,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_AERO_SECCIONES_TERMINAL AS
         COMMIT;
     EXCEPTION
         WHEN OTHERS THEN
-            RAISE_APPLICATION_ERROR(-20000, 'Error al insertar sección: ' || SQLERRM);
+            RAISE_APPLICATION_ERROR(-20000, 'Error al insertar seccion: ' || SQLERRM);
     END pr_insertar;
 
     PROCEDURE pr_actualizar (
@@ -61,12 +29,12 @@ CREATE OR REPLACE PACKAGE BODY PKG_AERO_SECCIONES_TERMINAL AS
     ) IS
     BEGIN
         UPDATE aero_secciones_terminal
-        SET id_terminal = p_id_terminal,
-            nombre = p_nombre,
-            tipo = p_tipo,
-            nivel = p_nivel,
-            area_m2 = p_area_m2,
-            activa = p_activa,
+        SET id_terminal    = p_id_terminal,
+            nombre         = p_nombre,
+            tipo           = p_tipo,
+            nivel          = p_nivel,
+            area_m2        = p_area_m2,
+            activa         = p_activa,
             actualizado_en = SYSTIMESTAMP
         WHERE id_seccion = p_id_seccion;
         COMMIT;
@@ -77,18 +45,18 @@ CREATE OR REPLACE PACKAGE BODY PKG_AERO_SECCIONES_TERMINAL AS
     ) IS
     BEGIN
         OPEN p_cursor FOR
-            SELECT 
-                s.id_seccion   AS ID,
-                t.nombre       AS Terminal_Ubicacion,
-                s.nombre       AS Nombre_Seccion,
-                s.tipo         AS Tipo_Area,
-                s.nivel        AS Nivel_Piso,
-                s.area_m2      AS Superficie_M2,
-                s.activa       AS Estado_Activa
+            SELECT
+                s.id_seccion   AS ID_SECCION,
+                s.id_terminal  AS ID_TERMINAL,
+                t.nombre       AS TERMINAL,
+                s.nombre       AS NOMBRE,
+                s.tipo         AS TIPO,
+                s.nivel        AS NIVEL,
+                s.area_m2      AS AREA_M2,
+                s.activa       AS ACTIVA
             FROM aero_secciones_terminal s
             JOIN aero_terminales t ON s.id_terminal = t.id_terminal
             ORDER BY t.nombre, s.nivel, s.nombre ASC;
     END pr_listar;
-
 END PKG_AERO_SECCIONES_TERMINAL;
 /

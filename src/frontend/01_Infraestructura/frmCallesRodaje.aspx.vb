@@ -81,6 +81,7 @@ Partial Public Class frmCallesRodaje
                 If ddlAeropuertoModal.Items.FindByValue(row("ID_AEROPUERTO").ToString()) IsNot Nothing Then
                     ddlAeropuertoModal.SelectedValue = row("ID_AEROPUERTO").ToString()
                 End If
+                Session("ModalAeropuertoId") = ddlAeropuertoModal.SelectedValue
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "modal", "abrirModalEditar();", True)
             End If
         Catch ex As Exception
@@ -93,7 +94,7 @@ Partial Public Class frmCallesRodaje
             Dim id As Integer = Convert.ToInt32(hfIdCalle.Value)
             Dim params As New List(Of OracleParameter)
             If id = 0 Then
-                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlAeropuertoModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlAeropuertoModal.SelectedValue <> "", ddlAeropuertoModal.SelectedValue, If(Session("ModalAeropuertoId") IsNot Nothing, Session("ModalAeropuertoId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_designacion", OracleDbType.Varchar2) With {.Value = txtDesignacion.Text.Trim()})
                 params.Add(New OracleParameter("p_longitud_m", OracleDbType.Decimal) With {.Value = If(txtLongitud.Text.Trim() = "", DBNull.Value, Convert.ToDecimal(txtLongitud.Text.Trim()))})
                 params.Add(New OracleParameter("p_ancho_m", OracleDbType.Decimal) With {.Value = If(txtAncho.Text.Trim() = "", DBNull.Value, Convert.ToDecimal(txtAncho.Text.Trim()))})
@@ -102,7 +103,7 @@ Partial Public Class frmCallesRodaje
                 MostrarToast("success", "Calle de rodaje registrada correctamente.")
             Else
                 params.Add(New OracleParameter("p_id_taxiway", OracleDbType.Int32) With {.Value = id})
-                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlAeropuertoModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_aeropuerto", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlAeropuertoModal.SelectedValue <> "", ddlAeropuertoModal.SelectedValue, If(Session("ModalAeropuertoId") IsNot Nothing, Session("ModalAeropuertoId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_designacion", OracleDbType.Varchar2) With {.Value = txtDesignacion.Text.Trim()})
                 params.Add(New OracleParameter("p_longitud_m", OracleDbType.Decimal) With {.Value = If(txtLongitud.Text.Trim() = "", DBNull.Value, Convert.ToDecimal(txtLongitud.Text.Trim()))})
                 params.Add(New OracleParameter("p_ancho_m", OracleDbType.Decimal) With {.Value = If(txtAncho.Text.Trim() = "", DBNull.Value, Convert.ToDecimal(txtAncho.Text.Trim()))})

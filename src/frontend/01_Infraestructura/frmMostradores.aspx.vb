@@ -77,6 +77,7 @@ Partial Public Class frmMostradores
                 If ddlTerminalModal.Items.FindByValue(row("ID_TERMINAL").ToString()) IsNot Nothing Then
                     ddlTerminalModal.SelectedValue = row("ID_TERMINAL").ToString()
                 End If
+                Session("ModalTerminalId") = ddlTerminalModal.SelectedValue
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "modal", "abrirModalEditar();", True)
             End If
         Catch ex As Exception
@@ -89,14 +90,14 @@ Partial Public Class frmMostradores
             Dim id As Integer = Convert.ToInt32(hfIdCounter.Value)
             Dim params As New List(Of OracleParameter)
             If id = 0 Then
-                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlTerminalModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlTerminalModal.SelectedValue <> "", ddlTerminalModal.SelectedValue, If(Session("ModalTerminalId") IsNot Nothing, Session("ModalTerminalId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_codigo", OracleDbType.Varchar2) With {.Value = txtCodigo.Text.Trim()})
                 params.Add(New OracleParameter("p_tipo", OracleDbType.Varchar2) With {.Value = ddlTipo.SelectedValue})
                 DatabaseHelper.ExecuteNonQuery("PKG_AERO_MOSTRADORES", "pr_insertar", params)
                 MostrarToast("success", "Mostrador registrado correctamente.")
             Else
                 params.Add(New OracleParameter("p_id_counter", OracleDbType.Int32) With {.Value = id})
-                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(ddlTerminalModal.SelectedValue)})
+                params.Add(New OracleParameter("p_id_terminal", OracleDbType.Int32) With {.Value = Convert.ToInt32(If(ddlTerminalModal.SelectedValue <> "", ddlTerminalModal.SelectedValue, If(Session("ModalTerminalId") IsNot Nothing, Session("ModalTerminalId").ToString(), "0")))})
                 params.Add(New OracleParameter("p_codigo", OracleDbType.Varchar2) With {.Value = txtCodigo.Text.Trim()})
                 params.Add(New OracleParameter("p_tipo", OracleDbType.Varchar2) With {.Value = ddlTipo.SelectedValue})
                 params.Add(New OracleParameter("p_activo", OracleDbType.Char) With {.Value = ddlActivo.SelectedValue})
