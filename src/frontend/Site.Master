@@ -124,14 +124,24 @@
                         <a href="/01_Infraestructura/frmTerminales.aspx"><i class="bi bi-building me-2"></i>Terminales</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#"><i class="bi bi-door-open me-2"></i>Puertas / Gates</a>
+                        <a href="/01_Infraestructura/frmSeccionesTerminal.aspx"><i class="bi bi-diagram-3 me-2"></i>Secciones</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#"><i class="bi bi-people me-2"></i>Salas de Espera</a>
+                        <a href="/01_Infraestructura/frmPuertasGates.aspx"><i class="bi bi-door-open me-2"></i>Puertas / Gates</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#"><i class="bi bi-shop me-2"></i>Mostradores</a>
+                        <a href="/01_Infraestructura/frmSalasEspera.aspx"><i class="bi bi-people me-2"></i>Salas de Espera</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmMostradores.aspx"><i class="bi bi-shop me-2"></i>Mostradores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmSistemasEquipaje.aspx"><i class="bi bi-luggage me-2"></i>Sistemas Equipaje</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmVipLounge.aspx"><i class="bi bi-star me-2"></i>VIP Lounge</a>
+                    </li>
+
                     <div class="sidebar-heading">Módulo 1: Logística</div>
                     <li class="nav-item">
                         <a href="#"><i class="bi bi-tools me-2"></i>Técnica / Logística</a>

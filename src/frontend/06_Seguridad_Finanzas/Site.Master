@@ -94,7 +94,7 @@
         .toast-info    .toast-header { background-color: #cff4fc; color: #055160; }
         .toast-info    .toast-body   { background-color: #f0fbff; color: #055160; }
     </style>
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+<asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">

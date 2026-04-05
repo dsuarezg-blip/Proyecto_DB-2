@@ -2,8 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">Dashboard</asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server"></asp:Content>
-
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 <div class="container-fluid px-4 py-3">
 
