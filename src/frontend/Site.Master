@@ -18,6 +18,7 @@
             background-color: #0d2040;
             z-index: 1000;
             width: 250px;
+            overflow-y: auto;
         }
         .sidebar-brand {
             padding: 0 20px 20px;
@@ -59,8 +60,6 @@
             border-radius: 8px;
             box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         }
-
-        /* ===== TOAST SYSTEM ===== */
         .toast-container-custom {
             position: fixed;
             top: 20px;
@@ -75,16 +74,8 @@
             margin-bottom: 10px;
             overflow: hidden;
         }
-        .toast-custom .toast-header {
-            border-bottom: none;
-            padding: 10px 14px 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-        .toast-custom .toast-body {
-            padding: 6px 14px 12px;
-            font-size: 0.875rem;
-        }
+        .toast-custom .toast-header { border-bottom: none; padding: 10px 14px 6px; font-weight: 600; font-size: 0.875rem; }
+        .toast-custom .toast-body   { padding: 6px 14px 12px; font-size: 0.875rem; }
         .toast-success .toast-header { background-color: #d1e7dd; color: #0a3622; }
         .toast-success .toast-body   { background-color: #f0faf4; color: #0a3622; }
         .toast-danger  .toast-header { background-color: #f8d7da; color: #58151c; }
@@ -98,10 +89,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-        <!-- Toast Container -->
         <div class="toast-container-custom" id="toastContainer"></div>
-
         <div class="d-flex">
             <!-- Sidebar -->
             <div class="sidebar">
@@ -113,40 +101,47 @@
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-    <a href="/01_Infraestructura/frmPistas.aspx"><i class="bi bi-arrows-expand me-2"></i>Pistas</a>
-</li>
-<li class="nav-item">
-    <a href="/01_Infraestructura/frmHangares.aspx"><i class="bi bi-house-gear me-2"></i>Hangares</a>
-</li>
-<li class="nav-item">
-    <a href="/01_Infraestructura/frmPlataformas.aspx"><i class="bi bi-square me-2"></i>Plataformas</a>
-</li>
-<li class="nav-item">
-    <a href="/01_Infraestructura/frmCallesRodaje.aspx"><i class="bi bi-signpost-split me-2"></i>Calles de Rodaje</a>
-</li>
-<div class="sidebar-heading">Módulo 1: Terminales</div>
-<li class="nav-item">
-    <a href="/01_Infraestructura/frmTerminales.aspx"><i class="bi bi-building me-2"></i>Terminales</a>
-</li>
-<li class="nav-item">
-    <a href="#"><i class="bi bi-door-open me-2"></i>Puertas / Gates</a>
-</li>
-<li class="nav-item">
-    <a href="#"><i class="bi bi-people me-2"></i>Salas de Espera</a>
-</li>
-<li class="nav-item">
-    <a href="#"><i class="bi bi-shop me-2"></i>Mostradores</a>
-</li>
-<div class="sidebar-heading">Módulo 1: Logística</div>
-<li class="nav-item">
-    <a href="#"><i class="bi bi-tools me-2"></i>Técnica / Logística</a>
-</li>
-<li class="nav-item">
-    <a href="#"><i class="bi bi-shield-check me-2"></i>Seguridad Física</a>
-</li>
-<li class="nav-item">
-    <a href="#"><i class="bi bi-clipboard-data me-2"></i>Auditoría</a>
-</li>
+                        <a href="/06_Seguridad_Finanzas/Dashboard.aspx"><i class="bi bi-house-door me-2"></i>Dashboard</a>
+                    </li>
+                    <div class="sidebar-heading">Módulo 1: Zona Aérea</div>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmAeropuertos.aspx"><i class="bi bi-geo-alt me-2"></i>Aeropuertos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmPistas.aspx"><i class="bi bi-arrows-expand me-2"></i>Pistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmHangares.aspx"><i class="bi bi-house-gear me-2"></i>Hangares</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmPlataformas.aspx"><i class="bi bi-square me-2"></i>Plataformas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmCallesRodaje.aspx"><i class="bi bi-signpost-split me-2"></i>Calles de Rodaje</a>
+                    </li>
+                    <div class="sidebar-heading">Módulo 1: Terminales</div>
+                    <li class="nav-item">
+                        <a href="/01_Infraestructura/frmTerminales.aspx"><i class="bi bi-building me-2"></i>Terminales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="bi bi-door-open me-2"></i>Puertas / Gates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="bi bi-people me-2"></i>Salas de Espera</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="bi bi-shop me-2"></i>Mostradores</a>
+                    </li>
+                    <div class="sidebar-heading">Módulo 1: Logística</div>
+                    <li class="nav-item">
+                        <a href="#"><i class="bi bi-tools me-2"></i>Técnica / Logística</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="bi bi-shield-check me-2"></i>Seguridad Física</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="bi bi-clipboard-data me-2"></i>Auditoría</a>
+                    </li>
                 </ul>
             </div>
 
@@ -167,36 +162,20 @@
                         </asp:LinkButton>
                     </div>
                 </div>
-
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
             </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-            // ===== SISTEMA DE TOASTS =====
             function showToast(tipo, titulo, mensaje) {
-                var iconos = {
-                    'success': 'bi-check-circle-fill',
-                    'danger':  'bi-x-circle-fill',
-                    'warning': 'bi-exclamation-triangle-fill',
-                    'info':    'bi-info-circle-fill'
-                };
-                var titulos = {
-                    'success': titulo || 'Éxito',
-                    'danger':  titulo || 'Error',
-                    'warning': titulo || 'Advertencia',
-                    'info':    titulo || 'Información'
-                };
+                var iconos = { 'success': 'bi-check-circle-fill', 'danger': 'bi-x-circle-fill', 'warning': 'bi-exclamation-triangle-fill', 'info': 'bi-info-circle-fill' };
+                var titulos = { 'success': titulo || 'Éxito', 'danger': titulo || 'Error', 'warning': titulo || 'Advertencia', 'info': titulo || 'Información' };
                 var id = 'toast_' + Date.now();
                 var html = '<div id="' + id + '" class="toast toast-custom toast-' + tipo + '" role="alert">' +
-                    '<div class="toast-header">' +
-                    '<i class="bi ' + iconos[tipo] + ' me-2"></i>' +
-                    '<strong class="me-auto">' + titulos[tipo] + '</strong>' +
-                    '<button type="button" class="btn-close btn-close-sm" data-bs-dismiss="toast"></button>' +
-                    '</div>' +
-                    '<div class="toast-body">' + mensaje + '</div>' +
-                    '</div>';
+                    '<div class="toast-header"><i class="bi ' + iconos[tipo] + ' me-2"></i><strong class="me-auto">' + titulos[tipo] + '</strong>' +
+                    '<button type="button" class="btn-close btn-close-sm" data-bs-dismiss="toast"></button></div>' +
+                    '<div class="toast-body">' + mensaje + '</div></div>';
                 document.getElementById('toastContainer').insertAdjacentHTML('beforeend', html);
                 var toastEl = document.getElementById(id);
                 var toast = new bootstrap.Toast(toastEl, { delay: tipo === 'danger' ? 8000 : 4000 });
