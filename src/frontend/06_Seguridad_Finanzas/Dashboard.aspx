@@ -1,71 +1,163 @@
-<%@ Page Title="Dashboard" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="Dashboard.aspx.vb" Inherits="AeroGT_Web.Dashboard" %>
+<%@ Page Title="Dashboard" Language="VB" MasterPageFile="~/06_Seguridad_Finanzas/Site.Master" AutoEventWireup="false" CodeFile="Dashboard.aspx.vb" Inherits="Dashboard" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .role-card {
-            border-left: 5px solid #0d2040;
-            transition: all 0.3s;
-        }
-        .role-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-    </style>
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">Dashboard</asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container py-4">
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="card card-premium p-4 bg-white border-0">
-                    <h2 class="display-6"><i class="bi bi-person-badge-fill me-3 gold-accent" style="color: #c5a059;"></i>Bienvenido, <span class="fw-bold text-dark"><%: Session("UserName") %></span></h2>
-                    <p class="text-muted">Sistema de Gestión Aeroportuaria AeroGT | Aeropuerto Internacional La Aurora</p>
-                </div>
-            </div>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server"></asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<div class="container-fluid px-4 py-3">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0" style="color:#0d2040;">
+                <i class="bi bi-speedometer2 me-2" style="color:#c5a059;"></i>Dashboard
+            </h2>
+            <p class="text-muted mb-0">
+                Bienvenido, <asp:Label ID="lblBienvenida" runat="server" CssClass="fw-semibold"></asp:Label>
+                &nbsp;|&nbsp; Rol: <asp:Label ID="lblRolBadge" runat="server"></asp:Label>
+            </p>
         </div>
-
-        <div class="row g-4">
-            <!-- Widgets according to Role -->
-            <% If Session("UserRole") = "Administrador" Then %>
-                <div class="col-md-4">
-                    <div class="card card-premium p-4 role-card">
-                        <h5><i class="bi bi-shield-lock-fill text-gold" style="color: #c5a059;"></i> Panel Administrativo</h5>
-                        <p class="small text-muted">Acesso total a la infraestructura y seguridad del sistema.</p>
-                        <a href="/Configuracion.aspx" class="btn btn-gold btn-sm">Gestionar</a>
-                    </div>
-                </div>
-            <% End If %>
-
-            <% If Session("UserRole") = "Cliente" Then %>
-                <div class="col-md-4">
-                    <div class="card card-premium p-4 role-card" style="border-left-color: #28a745;">
-                        <h5><i class="bi bi-receipt-cutoff text-success"></i> Servicios al Cliente</h5>
-                        <p class="small text-muted">Consulta de vuelos, reservaciones y servicios premium.</p>
-                        <a href="/Consultas.aspx" class="btn btn-success btn-sm">Consultar</a>
-                    </div>
-                </div>
-            <% End If %>
-
-            <% If Session("UserRole") = "Usuario Standard" Then %>
-                <div class="col-md-4">
-                    <div class="card card-premium p-4 role-card" style="border-left-color: #17a2b8;">
-                        <h5><i class="bi bi-tools text-info"></i> Operaciones</h5>
-                        <p class="small text-muted">Gestión de recursos y monitoreo de infraestructura.</p>
-                        <a href="/Operaciones.aspx" class="btn btn-info btn-sm">Monitorear</a>
-                    </div>
-                </div>
-            <% End If %>
-
-            <div class="col-md-8">
-                <div class="card card-premium p-4 bg-white">
-                    <h5><i class="bi bi-activity text-danger"></i> Actividad Reciente</h5>
-                    <hr />
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Acceso exitoso al sistema - Hace un momento</li>
-                        <li class="mb-2"><i class="bi bi-clock-history"></i> Última sincronización con Oracle 21c (172.16.10.10) - Correcta</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i><asp:Label ID="lblFecha" runat="server"></asp:Label></span>
     </div>
+
+    <asp:Panel ID="pnlAdmin" runat="server" Visible="false">
+        <div class="row g-3 mb-4">
+            <div class="col-12">
+                <h5 class="text-secondary fw-bold"><i class="bi bi-grid-3x3-gap me-2"></i>Módulos del Sistema</h5>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm h-100" style="border-left: 4px solid #c5a059 !important;">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;background:#fff8ee;">
+                                <i class="bi bi-building fs-4" style="color:#c5a059;"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Infraestructura</h6>
+                                <small class="text-muted">Aeropuertos y zonas</small>
+                            </div>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="/01_Infraestructura/frmAeropuertos.aspx" class="list-group-item list-group-item-action border-0 px-0 py-1 small"><i class="bi bi-geo-alt me-2 text-primary"></i>Aeropuertos</a>
+                            <a href="/01_Infraestructura/frmPistas.aspx" class="list-group-item list-group-item-action border-0 px-0 py-1 small"><i class="bi bi-arrows-expand me-2 text-primary"></i>Pistas</a>
+                            <a href="/01_Infraestructura/frmHangares.aspx" class="list-group-item list-group-item-action border-0 px-0 py-1 small"><i class="bi bi-house-gear me-2 text-primary"></i>Hangares</a>
+                            <a href="/01_Infraestructura/frmPlataformas.aspx" class="list-group-item list-group-item-action border-0 px-0 py-1 small"><i class="bi bi-square me-2 text-primary"></i>Plataformas</a>
+                            <a href="/01_Infraestructura/frmCallesRodaje.aspx" class="list-group-item list-group-item-action border-0 px-0 py-1 small"><i class="bi bi-signpost-split me-2 text-primary"></i>Calles de Rodaje</a>
+                            <a href="/01_Infraestructura/frmTerminales.aspx" class="list-group-item list-group-item-action border-0 px-0 py-1 small"><i class="bi bi-building-fill me-2 text-primary"></i>Terminales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm h-100 opacity-50">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;background:#eef3ff;">
+                                <i class="bi bi-airplane fs-4 text-primary"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Aerolíneas y Flota</h6>
+                                <small class="text-muted">En desarrollo</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-secondary">Próximamente</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm h-100 opacity-50">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;background:#eeffee;">
+                                <i class="bi bi-people fs-4 text-success"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Pasajeros</h6>
+                                <small class="text-muted">En desarrollo</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-secondary">Próximamente</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm h-100 opacity-50">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;background:#ffeeee;">
+                                <i class="bi bi-calendar-event fs-4 text-danger"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Operaciones</h6>
+                                <small class="text-muted">En desarrollo</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-secondary">Próximamente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-12">
+                <h5 class="text-secondary fw-bold"><i class="bi bi-bar-chart me-2"></i>Resumen del Sistema</h5>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm text-center py-3">
+                    <i class="bi bi-geo-alt-fill fs-1 mb-2" style="color:#c5a059;"></i>
+                    <h3 class="fw-bold mb-0"><asp:Label ID="lblTotalAeropuertos" runat="server" Text="--"></asp:Label></h3>
+                    <small class="text-muted">Aeropuertos registrados</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm text-center py-3">
+                    <i class="bi bi-arrows-expand fs-1 mb-2 text-primary"></i>
+                    <h3 class="fw-bold mb-0"><asp:Label ID="lblTotalPistas" runat="server" Text="--"></asp:Label></h3>
+                    <small class="text-muted">Pistas registradas</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm text-center py-3">
+                    <i class="bi bi-people-fill fs-1 mb-2 text-success"></i>
+                    <h3 class="fw-bold mb-0"><asp:Label ID="lblTotalUsuarios" runat="server" Text="--"></asp:Label></h3>
+                    <small class="text-muted">Usuarios activos</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm text-center py-3">
+                    <i class="bi bi-shield-check-fill fs-1 mb-2 text-danger"></i>
+                    <h3 class="fw-bold mb-0">OK</h3>
+                    <small class="text-muted">Estado del sistema</small>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
+
+    <asp:Panel ID="pnlUsuario" runat="server" Visible="false">
+        <div class="row g-3">
+            <div class="col-12">
+                <h5 class="text-secondary fw-bold"><i class="bi bi-grid me-2"></i>Accesos disponibles</h5>
+            </div>
+            <div class="col-md-4">
+                <a href="/01_Infraestructura/frmAeropuertos.aspx" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <i class="bi bi-geo-alt-fill fs-1 mb-3" style="color:#c5a059;"></i>
+                        <h6 class="fw-bold">Consultar Aeropuertos</h6>
+                        <small class="text-muted">Ver directorio de aeropuertos</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/01_Infraestructura/frmPistas.aspx" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <i class="bi bi-arrows-expand fs-1 mb-3 text-primary"></i>
+                        <h6 class="fw-bold">Consultar Pistas</h6>
+                        <small class="text-muted">Ver pistas por aeropuerto</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </asp:Panel>
+
+</div>
 </asp:Content>

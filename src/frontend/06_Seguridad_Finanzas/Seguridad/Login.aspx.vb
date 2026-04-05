@@ -1,13 +1,14 @@
 Imports AeroGT.App_Code
 
-Namespace AeroGT_Web
-    Partial Public Class Login
-        Inherits System.Web.UI.Page
 
-        Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-            ' Clear any previous alerts
-            pnlAlert.Visible = False
-        End Sub
+    Partial Public Class Login
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ' Clear any previous alerts
+        pnlAlert.Visible = False
+
+    End Sub
 
         Protected Sub btnLogin_Click(ByVal sender As Object, ByVal e As EventArgs)
             Try
@@ -23,8 +24,8 @@ Namespace AeroGT_Web
                 Dim success = AuthService.AuthenticateUser(user, pass)
 
                 If success Then
-                    Response.Redirect("~/Dashboard.aspx")
-                Else
+                Response.Redirect("~/06_Seguridad_Finanzas/Dashboard.aspx")
+            Else
                     ShowError("Credenciales inválidas. Intente de nuevo.")
                 End If
 
@@ -39,4 +40,3 @@ Namespace AeroGT_Web
             lblError.Text = message
         End Sub
     End Class
-End Namespace

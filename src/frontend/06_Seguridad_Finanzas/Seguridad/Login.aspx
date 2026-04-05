@@ -1,10 +1,9 @@
-<%@ Page Language="VB" AutoEventWireup="false" CodeBehind="Login.aspx.vb" Inherits="AeroGT_Web.Login" %>
-<!DOCTYPE html>
+<%@ Page Title="Login" Language="VB" AutoEventWireup="false" CodeFile="Login.aspx.vb" Inherits="Login" %><!DOCTYPE html>
 <html lang="es">
 <head runat="server">
     <meta charset="utf-8" />
     <title>Login - AeroGT Management System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
