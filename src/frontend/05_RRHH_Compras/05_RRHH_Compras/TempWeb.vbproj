@@ -166,6 +166,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Asistencia.aspx" />
+    <Content Include="Capacitaciones.aspx" />
+    <Content Include="CertMedicas.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -189,11 +191,16 @@
     <Content Include="Default.aspx" />
     <Content Include="Departamentos.aspx" />
     <Content Include="Empleados.aspx" />
+    <Content Include="EquipoProteccion.aspx" />
+    <Content Include="ExpedDisc.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="HistSalarial.aspx" />
     <Content Include="Licencias.aspx" />
+    <Content Include="PermisosUnion.aspx" />
     <Content Include="Puestos.aspx" />
     <Content Include="Reportes.aspx" />
+    <Content Include="Roles.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -258,6 +265,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Tripulacion.aspx" />
     <Content Include="Turnos.aspx" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Viaticos.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -278,6 +286,18 @@
     <Compile Include="Asistencia.aspx.vb">
       <DependentUpon>Asistencia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Capacitaciones.aspx.designer.vb">
+      <DependentUpon>Capacitaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Capacitaciones.aspx.vb">
+      <DependentUpon>Capacitaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CertMedicas.aspx.designer.vb">
+      <DependentUpon>CertMedicas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CertMedicas.aspx.vb">
+      <DependentUpon>CertMedicas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.designer.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -321,8 +341,26 @@
       <DependentUpon>Empleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="EquipoProteccion.aspx.designer.vb">
+      <DependentUpon>EquipoProteccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EquipoProteccion.aspx.vb">
+      <DependentUpon>EquipoProteccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExpedDisc.aspx.designer.vb">
+      <DependentUpon>ExpedDisc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExpedDisc.aspx.vb">
+      <DependentUpon>ExpedDisc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HistSalarial.aspx.designer.vb">
+      <DependentUpon>HistSalarial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistSalarial.aspx.vb">
+      <DependentUpon>HistSalarial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Licencias.aspx.designer.vb">
       <DependentUpon>Licencias.aspx</DependentUpon>
@@ -350,6 +388,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PermisosUnion.aspx.designer.vb">
+      <DependentUpon>PermisosUnion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PermisosUnion.aspx.vb">
+      <DependentUpon>PermisosUnion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Puestos.aspx.designer.vb">
       <DependentUpon>Puestos.aspx</DependentUpon>
     </Compile>
@@ -363,6 +407,12 @@
     <Compile Include="Reportes.aspx.vb">
       <DependentUpon>Reportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles.aspx.designer.vb">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.aspx.vb">
+      <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
     <Compile Include="RRHH.Master.vb">
       <DependentUpon>RRHH.Master</DependentUpon>
@@ -389,6 +439,12 @@
     <Compile Include="Turnos.aspx.vb">
       <DependentUpon>Turnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.vb">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.aspx.vb">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Viaticos.aspx.designer.vb">
       <DependentUpon>Viaticos.aspx</DependentUpon>
