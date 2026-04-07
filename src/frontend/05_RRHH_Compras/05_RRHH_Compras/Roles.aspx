@@ -1,11 +1,11 @@
-<%@ Page Title="Roles del Sistema" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Roles.aspx.vb" Inherits="Roles" %>
+﻿<%@ Page Title="Roles del Sistema" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Roles.aspx.vb" Inherits="Roles" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2 class="mb-1"><i class="bi bi-shield-lock me-2" style="color:#e94560;"></i>Roles del Sistema</h2>
-        <p class="text-muted mb-0">Administración de roles y permisos de acceso RRHH</p>
+        <p class="text-muted mb-0">AdministraciÃ³n de roles y permisos de acceso RRHH</p>
     </div>
     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalNuevo">
         <i class="bi bi-plus-lg me-1"></i> Nuevo rol
@@ -26,7 +26,7 @@
             <Columns>
                 <asp:BoundField DataField="id_rol"      HeaderText="ID"          />
                 <asp:BoundField DataField="nombre_rol"  HeaderText="Nombre"      />
-                <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
+                <asp:BoundField DataField="descripcion" HeaderText="DescripciÃ³n" />
                 <asp:BoundField DataField="nivel"       HeaderText="Nivel"       />
                 <asp:BoundField DataField="activo"      HeaderText="Activo"      />
                 <asp:TemplateField HeaderText="Permisos">
@@ -56,9 +56,9 @@
                 EmptyDataText="Este rol no tiene permisos asignados.">
                 <EmptyDataRowStyle CssClass="text-center text-muted p-3" />
                 <Columns>
-                    <asp:BoundField DataField="modulo"    HeaderText="Módulo"    />
+                    <asp:BoundField DataField="modulo"    HeaderText="MÃ³dulo"    />
                     <asp:BoundField DataField="permiso"   HeaderText="Permiso"   />
-                    <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
+                    <asp:BoundField DataField="descripcion" HeaderText="DescripciÃ³n" />
                 </Columns>
             </asp:GridView>
         </div>
@@ -82,14 +82,14 @@
                     <div class="col-md-4">
                         <label class="form-label">Nivel *</label>
                         <asp:DropDownList ID="ddlNivel" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="1">1 - Básico</asp:ListItem>
+                            <asp:ListItem Value="1">1 - BÃ¡sico</asp:ListItem>
                             <asp:ListItem Value="2">2 - Operativo</asp:ListItem>
                             <asp:ListItem Value="3">3 - Supervisor</asp:ListItem>
                             <asp:ListItem Value="4">4 - Administrador</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                     <div class="col-12">
-                        <label class="form-label">Descripción</label>
+                        <label class="form-label">DescripciÃ³n</label>
                         <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="2" CssClass="form-control bg-dark text-light border-secondary" />
                     </div>
                 </div>

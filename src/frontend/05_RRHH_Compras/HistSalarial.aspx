@@ -1,4 +1,4 @@
-<%@ Page Title="Historial Salarial" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="HistSalarial.aspx.vb" Inherits="HistSalarial" %>
+﻿<%@ Page Title="Historial Salarial" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="HistSalarial.aspx.vb" Inherits="HistSalarial" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -74,10 +74,10 @@
                     <div class="col-12">
                         <label class="form-label">Motivo *</label>
                         <asp:DropDownList ID="ddlMotivo" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
                             <asp:ListItem Value="AUMENTO_ANUAL">Aumento anual</asp:ListItem>
-                            <asp:ListItem Value="PROMOCION">Promoción</asp:ListItem>
-                            <asp:ListItem Value="MERITO">Mérito</asp:ListItem>
+                            <asp:ListItem Value="PROMOCION">PromociÃ³n</asp:ListItem>
+                            <asp:ListItem Value="MERITO">MÃ©rito</asp:ListItem>
                             <asp:ListItem Value="AJUSTE_MERCADO">Ajuste de mercado</asp:ListItem>
                             <asp:ListItem Value="OTRO">Otro</asp:ListItem>
                         </asp:DropDownList>

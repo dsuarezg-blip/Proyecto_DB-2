@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false"
          CodeBehind="Contratos.aspx.vb"
          Inherits="ProyectoAeroGT_Modulo3y4.Contratos"
-         MasterPageFile="~/05_RRHH_Compras/RRHH.Master" %>
+         MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">Contratos</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server"/>

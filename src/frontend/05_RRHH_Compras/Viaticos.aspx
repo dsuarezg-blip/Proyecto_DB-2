@@ -1,4 +1,4 @@
-<%@ Page Title="Viáticos" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Viaticos.aspx.vb" Inherits="Viaticos" %>
+﻿<%@ Page Title="ViÃ¡ticos" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Viaticos.aspx.vb" Inherits="Viaticos" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -15,8 +15,8 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
-        <h2 class="mb-1"><i class="bi bi-cash-stack me-2" style="color:#e94560;"></i>Viáticos</h2>
-        <p class="text-muted mb-0">Solicitudes y liquidaciones de viáticos del personal</p>
+        <h2 class="mb-1"><i class="bi bi-cash-stack me-2" style="color:#e94560;"></i>ViÃ¡ticos</h2>
+        <p class="text-muted mb-0">Solicitudes y liquidaciones de viÃ¡ticos del personal</p>
     </div>
     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalNuevoViatico">
         <i class="bi bi-plus-lg me-1"></i> Nueva solicitud
@@ -79,7 +79,7 @@
             <div class="col-md-3">
                 <label class="form-label text-light">Estado</label>
                 <asp:DropDownList ID="ddlEstadoFiltro" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                    <asp:ListItem Value="">— Todos —</asp:ListItem>
+                    <asp:ListItem Value="">â€” Todos â€”</asp:ListItem>
                     <asp:ListItem Value="PENDIENTE">Pendiente</asp:ListItem>
                     <asp:ListItem Value="APROBADO">Aprobado</asp:ListItem>
                     <asp:ListItem Value="LIQUIDADO">Liquidado</asp:ListItem>
@@ -98,7 +98,7 @@
     <div class="card-body p-0">
         <asp:GridView ID="gvViaticos" runat="server" AutoGenerateColumns="false"
             CssClass="table table-dark table-hover mb-0" GridLines="None"
-            EmptyDataText="No hay viáticos registrados.">
+            EmptyDataText="No hay viÃ¡ticos registrados.">
             <EmptyDataRowStyle CssClass="text-center text-muted p-4" />
             <Columns>
                 <asp:BoundField DataField="nombre_empleado"    HeaderText="Empleado"   />
@@ -124,7 +124,7 @@
                         <asp:LinkButton CssClass="btn btn-sm btn-outline-success me-1" runat="server"
                             CommandName="Aprobar" CommandArgument='<%# Eval("id_viatico") %>'
                             OnCommand="gvViaticos_Command" CausesValidation="false"
-                            Visible='<%# Eval("estado").ToString() = "PENDIENTE" %>'>✓</asp:LinkButton>
+                            Visible='<%# Eval("estado").ToString() = "PENDIENTE" %>'>âœ“</asp:LinkButton>
                         <asp:LinkButton CssClass="btn btn-sm btn-outline-info me-1" runat="server"
                             CommandName="Liquidar" CommandArgument='<%# Eval("id_viatico") %>'
                             OnCommand="gvViaticos_Command" CausesValidation="false"
@@ -132,7 +132,7 @@
                         <asp:LinkButton CssClass="btn btn-sm btn-outline-danger" runat="server"
                             CommandName="Rechazar" CommandArgument='<%# Eval("id_viatico") %>'
                             OnCommand="gvViaticos_Command" CausesValidation="false"
-                            Visible='<%# Eval("estado").ToString() = "PENDIENTE" %>'>✗</asp:LinkButton>
+                            Visible='<%# Eval("estado").ToString() = "PENDIENTE" %>'>âœ—</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -145,7 +145,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="background:#1a1a2e;color:#e0e0e0;border:1px solid #e94560;">
             <div class="modal-header" style="border-bottom:1px solid #2a2a4a;">
-                <h5 class="modal-title"><i class="bi bi-cash-stack me-2" style="color:#e94560;"></i>Nueva Solicitud de Viático</h5>
+                <h5 class="modal-title"><i class="bi bi-cash-stack me-2" style="color:#e94560;"></i>Nueva Solicitud de ViÃ¡tico</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -156,7 +156,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Destino *</label>
-                        <asp:TextBox ID="txtDestino" runat="server" CssClass="form-control bg-dark text-light border-secondary" placeholder="Ciudad, País" />
+                        <asp:TextBox ID="txtDestino" runat="server" CssClass="form-control bg-dark text-light border-secondary" placeholder="Ciudad, PaÃ­s" />
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Fecha de salida *</label>
@@ -189,7 +189,7 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background:#1a1a2e;color:#e0e0e0;border:1px solid #0ea5e9;">
             <div class="modal-header" style="border-bottom:1px solid #2a2a4a;">
-                <h5 class="modal-title">Liquidar Viático</h5>
+                <h5 class="modal-title">Liquidar ViÃ¡tico</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">

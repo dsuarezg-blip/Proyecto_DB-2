@@ -1,4 +1,4 @@
-<%@ Page Title="Reportes RRHH" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Reportes.aspx.vb" Inherits="Reportes" %>
+﻿<%@ Page Title="Reportes RRHH" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Reportes.aspx.vb" Inherits="Reportes" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -14,7 +14,7 @@
 
 <div class="mb-4">
     <h2 class="mb-1"><i class="bi bi-bar-chart-line me-2" style="color:#e94560;"></i>Reportes RRHH</h2>
-    <p class="text-muted">Los reportes se ejecutan contra la base de datos réplica (172.16.10.20)</p>
+    <p class="text-muted">Los reportes se ejecutan contra la base de datos rÃ©plica (172.16.10.20)</p>
 </div>
 
 <asp:Panel ID="pnlAlerta" runat="server" Visible="false" CssClass="alert alert-dismissible fade show mb-4" role="alert">
@@ -42,22 +42,22 @@
         <div class="report-card" onclick="seleccionarReporte('licencias')">
             <div class="icon" style="color:#e94560;"><i class="bi bi-card-checklist"></i></div>
             <h6>Licencias por vencer</h6>
-            <p>Pilotos con licencia próxima a vencer</p>
+            <p>Pilotos con licencia prÃ³xima a vencer</p>
         </div>
     </div>
     <div class="col-md-3">
         <div class="report-card" onclick="seleccionarReporte('viaticos')">
             <div class="icon text-info"><i class="bi bi-cash-stack"></i></div>
-            <h6>Viáticos pendientes</h6>
+            <h6>ViÃ¡ticos pendientes</h6>
             <p>Solicitudes sin liquidar</p>
         </div>
     </div>
 </div>
 
-<%-- PARÁMETROS --%>
+<%-- PARÃMETROS --%>
 <div class="card mb-4" style="border:1px solid #2a2a4a;background:#1a1a2e;">
     <div class="card-header" style="background:#12122a;color:#e0e0e0;">
-        <i class="bi bi-sliders me-2" style="color:#e94560;"></i>Parámetros del reporte
+        <i class="bi bi-sliders me-2" style="color:#e94560;"></i>ParÃ¡metros del reporte
     </div>
     <div class="card-body">
         <div class="row g-3 align-items-end">
@@ -70,7 +70,7 @@
                 <asp:DropDownList ID="ddlDepto" runat="server" CssClass="form-select bg-dark text-light border-secondary" />
             </asp:Panel>
             <asp:Panel ID="pnlParamFecha" runat="server" CssClass="col-md-4" Visible="false">
-                <label class="form-label text-light">Mes / Año</label>
+                <label class="form-label text-light">Mes / AÃ±o</label>
                 <div class="row g-2">
                     <div class="col-6">
                         <asp:DropDownList ID="ddlMes" runat="server" CssClass="form-select bg-dark text-light border-secondary">
@@ -83,12 +83,12 @@
                         </asp:DropDownList>
                     </div>
                     <div class="col-6">
-                        <asp:TextBox ID="txtAnio" runat="server" CssClass="form-control bg-dark text-light border-secondary" TextMode="Number" placeholder="Año" />
+                        <asp:TextBox ID="txtAnio" runat="server" CssClass="form-control bg-dark text-light border-secondary" TextMode="Number" placeholder="AÃ±o" />
                     </div>
                 </div>
             </asp:Panel>
             <asp:Panel ID="pnlParamDias" runat="server" CssClass="col-md-3" Visible="false">
-                <label class="form-label text-light">Umbral días</label>
+                <label class="form-label text-light">Umbral dÃ­as</label>
                 <asp:TextBox ID="txtDias" runat="server" CssClass="form-control bg-dark text-light border-secondary" TextMode="Number" Text="90" />
             </asp:Panel>
             <div class="col-md-2">
@@ -109,7 +109,7 @@
         <div class="card-body p-0" style="overflow-x:auto;">
             <asp:GridView ID="gvResultado" runat="server" AutoGenerateColumns="true"
                 CssClass="table table-dark table-sm table-hover mb-0" GridLines="None"
-                EmptyDataText="El reporte no devolvió resultados.">
+                EmptyDataText="El reporte no devolviÃ³ resultados.">
                 <EmptyDataRowStyle CssClass="text-center text-muted p-4" />
                 <HeaderStyle Style="background:#0f0f1e;color:#e94560;" />
             </asp:GridView>

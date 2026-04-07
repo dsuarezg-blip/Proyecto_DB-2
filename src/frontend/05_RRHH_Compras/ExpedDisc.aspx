@@ -1,4 +1,4 @@
-<%@ Page Title="Expedientes Disciplinarios" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="ExpedDisc.aspx.vb" Inherits="ExpedDisc" %>
+﻿<%@ Page Title="Expedientes Disciplinarios" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="ExpedDisc.aspx.vb" Inherits="ExpedDisc" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         .badge-abierto   { background:#dc2626;color:#fff;padding:3px 10px;border-radius:20px;font-size:.78rem; }
@@ -41,8 +41,8 @@
             <Columns>
                 <asp:BoundField DataField="nombre_empleado" HeaderText="Empleado"   />
                 <asp:BoundField DataField="tipo_falta"      HeaderText="Tipo falta" />
-                <asp:BoundField DataField="descripcion"     HeaderText="Descripción"/>
-                <asp:BoundField DataField="sancion"         HeaderText="Sanción"    />
+                <asp:BoundField DataField="descripcion"     HeaderText="DescripciÃ³n"/>
+                <asp:BoundField DataField="sancion"         HeaderText="SanciÃ³n"    />
                 <asp:BoundField DataField="fecha_falta"     HeaderText="Fecha"      DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:TemplateField HeaderText="Estado">
                     <ItemTemplate><span class='<%# GetBadgeClass(Eval("estado")) %>'><%# Eval("estado") %></span></ItemTemplate>
@@ -65,22 +65,22 @@
                         <asp:DropDownList ID="ddlEmpleado" runat="server" CssClass="form-select bg-dark text-light border-secondary" /></div>
                     <div class="col-md-6"><label class="form-label">Tipo de falta *</label>
                         <asp:DropDownList ID="ddlTipoFalta" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
                             <asp:ListItem Value="LEVE">Leve</asp:ListItem>
                             <asp:ListItem Value="GRAVE">Grave</asp:ListItem>
                             <asp:ListItem Value="MUY_GRAVE">Muy grave</asp:ListItem>
                         </asp:DropDownList></div>
                     <div class="col-md-6"><label class="form-label">Fecha falta *</label>
                         <asp:TextBox ID="txtFechaFalta" runat="server" TextMode="Date" CssClass="form-control bg-dark text-light border-secondary" /></div>
-                    <div class="col-md-6"><label class="form-label">Sanción aplicada</label>
+                    <div class="col-md-6"><label class="form-label">SanciÃ³n aplicada</label>
                         <asp:DropDownList ID="ddlSancion" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
-                            <asp:ListItem Value="AMONESTACION_VERBAL">Amonestación verbal</asp:ListItem>
-                            <asp:ListItem Value="AMONESTACION_ESCRITA">Amonestación escrita</asp:ListItem>
-                            <asp:ListItem Value="SUSPENSION">Suspensión</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
+                            <asp:ListItem Value="AMONESTACION_VERBAL">AmonestaciÃ³n verbal</asp:ListItem>
+                            <asp:ListItem Value="AMONESTACION_ESCRITA">AmonestaciÃ³n escrita</asp:ListItem>
+                            <asp:ListItem Value="SUSPENSION">SuspensiÃ³n</asp:ListItem>
                             <asp:ListItem Value="DESPIDO">Despido</asp:ListItem>
                         </asp:DropDownList></div>
-                    <div class="col-12"><label class="form-label">Descripción *</label>
+                    <div class="col-12"><label class="form-label">DescripciÃ³n *</label>
                         <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control bg-dark text-light border-secondary" /></div>
                 </div>
             </div>

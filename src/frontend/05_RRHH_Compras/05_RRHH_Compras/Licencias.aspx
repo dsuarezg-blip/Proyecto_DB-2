@@ -1,4 +1,4 @@
-<%@ Page Title="Licencias de Piloto" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Licencias.aspx.vb" Inherits="Licencias" %>
+﻿<%@ Page Title="Licencias de Piloto" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Licencias.aspx.vb" Inherits="Licencias" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -17,7 +17,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2 class="mb-1"><i class="bi bi-card-checklist me-2" style="color:#e94560;"></i>Licencias de Piloto</h2>
-        <p class="text-muted mb-0">Gestión de licencias aeronáuticas del personal de vuelo</p>
+        <p class="text-muted mb-0">GestiÃ³n de licencias aeronÃ¡uticas del personal de vuelo</p>
     </div>
     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalNuevaLicencia">
         <i class="bi bi-plus-lg me-1"></i> Nueva Licencia
@@ -40,9 +40,9 @@
             <div class="col-md-3">
                 <label class="form-label text-light">Estado vigencia</label>
                 <asp:DropDownList ID="ddlEstadoFiltro" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                    <asp:ListItem Value="">— Todos —</asp:ListItem>
+                    <asp:ListItem Value="">â€” Todos â€”</asp:ListItem>
                     <asp:ListItem Value="VIGENTE">Vigente</asp:ListItem>
-                    <asp:ListItem Value="POR_VENCER">Por vencer (90 días)</asp:ListItem>
+                    <asp:ListItem Value="POR_VENCER">Por vencer (90 dÃ­as)</asp:ListItem>
                     <asp:ListItem Value="VENCIDA">Vencida</asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -63,14 +63,14 @@
             <Columns>
                 <asp:BoundField DataField="nombre_empleado"   HeaderText="Empleado"    />
                 <asp:BoundField DataField="tipo"              HeaderText="Tipo"        />
-                <asp:BoundField DataField="numero"            HeaderText="N° Licencia" />
+                <asp:BoundField DataField="numero"            HeaderText="NÂ° Licencia" />
                 <asp:BoundField DataField="organismo_emisor"  HeaderText="Organismo"   />
-                <asp:BoundField DataField="fecha_emision"     HeaderText="Emisión"     DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="fecha_emision"     HeaderText="EmisiÃ³n"     DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="fecha_vencimiento" HeaderText="Vencimiento" DataFormatString="{0:dd/MM/yyyy}" />
-                <asp:TemplateField HeaderText="Días restantes">
+                <asp:TemplateField HeaderText="DÃ­as restantes">
                     <ItemTemplate>
                         <span class='dias-badge <%# GetDiasClass(Eval("dias_restantes")) %>'>
-                            <%# Eval("dias_restantes") %> días
+                            <%# Eval("dias_restantes") %> dÃ­as
                         </span>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -99,21 +99,21 @@
 <div class="card" style="border:1px solid #d97706;background:#1a1a2e;">
     <div class="card-header" style="background:#7c2d12;color:#fde68a;">
         <i class="bi bi-exclamation-triangle-fill me-2"></i>
-        <strong>Licencias próximas a vencer (90 días)</strong>
+        <strong>Licencias prÃ³ximas a vencer (90 dÃ­as)</strong>
         <asp:Label ID="lblContPorVencer" runat="server" CssClass="badge bg-warning text-dark ms-2" />
     </div>
     <div class="card-body p-0">
         <asp:GridView ID="gvPorVencer" runat="server" AutoGenerateColumns="false"
             CssClass="table table-dark mb-0" GridLines="None"
-            EmptyDataText="No hay licencias próximas a vencer. ✅">
+            EmptyDataText="No hay licencias prÃ³ximas a vencer. âœ…">
             <EmptyDataRowStyle CssClass="text-center text-success p-3" />
             <Columns>
                 <asp:BoundField DataField="nombre_empleado"   HeaderText="Piloto"      />
                 <asp:BoundField DataField="puesto"            HeaderText="Puesto"      />
                 <asp:BoundField DataField="tipo"              HeaderText="Tipo"        />
-                <asp:BoundField DataField="numero"            HeaderText="N° Licencia" />
+                <asp:BoundField DataField="numero"            HeaderText="NÂ° Licencia" />
                 <asp:BoundField DataField="fecha_vencimiento" HeaderText="Vencimiento" DataFormatString="{0:dd/MM/yyyy}" />
-                <asp:BoundField DataField="dias_restantes"    HeaderText="Días rest."  />
+                <asp:BoundField DataField="dias_restantes"    HeaderText="DÃ­as rest."  />
             </Columns>
         </asp:GridView>
     </div>
@@ -136,7 +136,7 @@
                     <div class="col-md-6">
                         <label class="form-label">Tipo *</label>
                         <asp:DropDownList ID="ddlTipoLic" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
                             <asp:ListItem Value="ATP">ATP</asp:ListItem>
                             <asp:ListItem Value="CPL">CPL</asp:ListItem>
                             <asp:ListItem Value="PPL">PPL</asp:ListItem>
@@ -146,7 +146,7 @@
                         </asp:DropDownList>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">N° Licencia *</label>
+                        <label class="form-label">NÂ° Licencia *</label>
                         <asp:TextBox ID="txtNumero" runat="server" CssClass="form-control bg-dark text-light border-secondary" />
                     </div>
                     <div class="col-md-6">
@@ -154,7 +154,7 @@
                         <asp:TextBox ID="txtOrganismo" runat="server" CssClass="form-control bg-dark text-light border-secondary" placeholder="Ej: DGAC Guatemala" />
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Fecha emisión *</label>
+                        <label class="form-label">Fecha emisiÃ³n *</label>
                         <asp:TextBox ID="txtFechaEmision" runat="server" TextMode="Date" CssClass="form-control bg-dark text-light border-secondary" />
                     </div>
                     <div class="col-md-6">
@@ -197,7 +197,7 @@
             </div>
             <div class="modal-footer" style="border-top:1px solid #2a2a4a;">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <asp:Button ID="btnConfirmarRenovar" runat="server" Text="Confirmar renovación" CssClass="btn btn-warning text-dark" OnClick="btnConfirmarRenovar_Click" />
+                <asp:Button ID="btnConfirmarRenovar" runat="server" Text="Confirmar renovaciÃ³n" CssClass="btn btn-warning text-dark" OnClick="btnConfirmarRenovar_Click" />
             </div>
         </div>
     </div>

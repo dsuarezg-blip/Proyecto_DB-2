@@ -229,7 +229,6 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="RRHH.Master" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -413,10 +412,6 @@
     </Compile>
     <Compile Include="Roles.aspx.vb">
       <DependentUpon>Roles.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RRHH.Master.vb">
-      <DependentUpon>RRHH.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RrhhDAO.vb" />
     <Compile Include="Site.Master.designer.vb">

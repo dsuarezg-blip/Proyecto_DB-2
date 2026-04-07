@@ -1,10 +1,10 @@
-<%@ Page Title="Usuarios del Sistema" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Usuarios.aspx.vb" Inherits="Usuarios" %>
+﻿<%@ Page Title="Usuarios del Sistema" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Usuarios.aspx.vb" Inherits="Usuarios" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div><h2 class="mb-1"><i class="bi bi-person-badge me-2" style="color:#e94560;"></i>Usuarios del Sistema</h2>
-        <p class="text-muted mb-0">Gestión de accesos al módulo RRHH</p></div>
+        <p class="text-muted mb-0">GestiÃ³n de accesos al mÃ³dulo RRHH</p></div>
     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalNuevo"><i class="bi bi-plus-lg me-1"></i> Nuevo usuario</button>
 </div>
 
@@ -23,8 +23,8 @@
                 <asp:BoundField DataField="username"        HeaderText="Usuario"    />
                 <asp:BoundField DataField="nombre_rol"      HeaderText="Rol"        />
                 <asp:BoundField DataField="estado"          HeaderText="Estado"     />
-                <asp:BoundField DataField="ultimo_acceso"   HeaderText="Último acceso" DataFormatString="{0:dd/MM/yyyy HH:mm}" />
-                <asp:TemplateField HeaderText="Acción">
+                <asp:BoundField DataField="ultimo_acceso"   HeaderText="Ãšltimo acceso" DataFormatString="{0:dd/MM/yyyy HH:mm}" />
+                <asp:TemplateField HeaderText="AcciÃ³n">
                     <ItemTemplate>
                         <asp:LinkButton runat="server" CssClass="btn btn-sm btn-outline-warning"
                             CommandName="Toggle" CommandArgument='<%# Eval("id_usuario") & "|" & Eval("estado") %>'
@@ -51,7 +51,7 @@
                         <asp:DropDownList ID="ddlEmpleado" runat="server" CssClass="form-select bg-dark text-light border-secondary" /></div>
                     <div class="col-md-6"><label class="form-label">Nombre de usuario *</label>
                         <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control bg-dark text-light border-secondary" /></div>
-                    <div class="col-md-6"><label class="form-label">Contraseña inicial *</label>
+                    <div class="col-md-6"><label class="form-label">ContraseÃ±a inicial *</label>
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control bg-dark text-light border-secondary" /></div>
                     <div class="col-12"><label class="form-label">Rol *</label>
                         <asp:DropDownList ID="ddlRol" runat="server" CssClass="form-select bg-dark text-light border-secondary" /></div>

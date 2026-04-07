@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false"
          CodeBehind="Empleados.aspx.vb"
          Inherits="ProyectoAeroGT_Modulo3y4.Empleados"
-         MasterPageFile="~/05_RRHH_Compras/RRHH.Master" %>
+         MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Empleados

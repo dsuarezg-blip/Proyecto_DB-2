@@ -1,4 +1,4 @@
-<%@ Page Title="Equipo de Protección" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="EquipoProteccion.aspx.vb" Inherits="EquipoProteccion" %>
+﻿<%@ Page Title="Equipo de ProtecciÃ³n" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="EquipoProteccion.aspx.vb" Inherits="EquipoProteccion" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -12,8 +12,8 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
-        <h2 class="mb-1"><i class="bi bi-shield-check me-2" style="color:#e94560;"></i>Equipo de Protección Personal</h2>
-        <p class="text-muted mb-0">Control de entrega y devolución de EPP</p>
+        <h2 class="mb-1"><i class="bi bi-shield-check me-2" style="color:#e94560;"></i>Equipo de ProtecciÃ³n Personal</h2>
+        <p class="text-muted mb-0">Control de entrega y devoluciÃ³n de EPP</p>
     </div>
     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalNuevo">
         <i class="bi bi-plus-lg me-1"></i> Registrar entrega
@@ -48,16 +48,16 @@
             <Columns>
                 <asp:BoundField DataField="nombre_empleado" HeaderText="Empleado"       />
                 <asp:BoundField DataField="tipo_equipo"     HeaderText="Equipo"         />
-                <asp:BoundField DataField="descripcion"     HeaderText="Descripción"    />
+                <asp:BoundField DataField="descripcion"     HeaderText="DescripciÃ³n"    />
                 <asp:BoundField DataField="talla"           HeaderText="Talla"          />
                 <asp:BoundField DataField="fecha_entrega"   HeaderText="Entrega"        DataFormatString="{0:dd/MM/yyyy}" />
-                <asp:BoundField DataField="fecha_devolucion" HeaderText="Devolución"    DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="fecha_devolucion" HeaderText="DevoluciÃ³n"    DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:TemplateField HeaderText="Estado">
                     <ItemTemplate>
                         <span class='<%# GetBadgeClass(Eval("estado")) %>'><%# Eval("estado") %></span>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Acción">
+                <asp:TemplateField HeaderText="AcciÃ³n">
                     <ItemTemplate>
                         <asp:LinkButton runat="server" CssClass="btn btn-sm btn-outline-secondary"
                             CommandName="Devolver" CommandArgument='<%# Eval("id_epp") %>'
@@ -86,14 +86,14 @@
                     <div class="col-md-6">
                         <label class="form-label">Tipo de equipo *</label>
                         <asp:DropDownList ID="ddlTipoEquipo" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
                             <asp:ListItem Value="UNIFORME">Uniforme</asp:ListItem>
                             <asp:ListItem Value="CASCO">Casco</asp:ListItem>
                             <asp:ListItem Value="CHALECO">Chaleco reflectivo</asp:ListItem>
                             <asp:ListItem Value="BOTAS">Botas de seguridad</asp:ListItem>
                             <asp:ListItem Value="GUANTES">Guantes</asp:ListItem>
-                            <asp:ListItem Value="LENTES">Lentes de protección</asp:ListItem>
-                            <asp:ListItem Value="AURICULARES">Protección auditiva</asp:ListItem>
+                            <asp:ListItem Value="LENTES">Lentes de protecciÃ³n</asp:ListItem>
+                            <asp:ListItem Value="AURICULARES">ProtecciÃ³n auditiva</asp:ListItem>
                             <asp:ListItem Value="OTRO">Otro</asp:ListItem>
                         </asp:DropDownList>
                     </div>
@@ -102,7 +102,7 @@
                         <asp:TextBox ID="txtTalla" runat="server" CssClass="form-control bg-dark text-light border-secondary" placeholder="Ej: M, L, 42" />
                     </div>
                     <div class="col-12">
-                        <label class="form-label">Descripción</label>
+                        <label class="form-label">DescripciÃ³n</label>
                         <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control bg-dark text-light border-secondary" />
                     </div>
                     <div class="col-md-6">

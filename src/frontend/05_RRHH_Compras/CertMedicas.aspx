@@ -1,4 +1,4 @@
-<%@ Page Title="Certificados Médicos" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="CertMedicas.aspx.vb" Inherits="CertMedicas" %>
+﻿<%@ Page Title="Certificados MÃ©dicos" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="CertMedicas.aspx.vb" Inherits="CertMedicas" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -12,8 +12,8 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
-        <h2 class="mb-1"><i class="bi bi-heart-pulse me-2" style="color:#e94560;"></i>Certificados Médicos</h2>
-        <p class="text-muted mb-0">Control de aptitud médica del personal</p>
+        <h2 class="mb-1"><i class="bi bi-heart-pulse me-2" style="color:#e94560;"></i>Certificados MÃ©dicos</h2>
+        <p class="text-muted mb-0">Control de aptitud mÃ©dica del personal</p>
     </div>
     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalNuevo">
         <i class="bi bi-plus-lg me-1"></i> Nuevo Certificado
@@ -36,7 +36,7 @@
             <div class="col-md-3">
                 <label class="form-label text-light">Estado</label>
                 <asp:DropDownList ID="ddlEstadoFiltro" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                    <asp:ListItem Value="">— Todos —</asp:ListItem>
+                    <asp:ListItem Value="">â€” Todos â€”</asp:ListItem>
                     <asp:ListItem Value="VIGENTE">Vigente</asp:ListItem>
                     <asp:ListItem Value="VENCIDO">Vencido</asp:ListItem>
                     <asp:ListItem Value="PENDIENTE">Pendiente</asp:ListItem>
@@ -58,7 +58,7 @@
             <Columns>
                 <asp:BoundField DataField="nombre_empleado"   HeaderText="Empleado"    />
                 <asp:BoundField DataField="tipo_examen"       HeaderText="Tipo examen" />
-                <asp:BoundField DataField="medico"            HeaderText="Médico"      />
+                <asp:BoundField DataField="medico"            HeaderText="MÃ©dico"      />
                 <asp:BoundField DataField="fecha_examen"      HeaderText="Fecha"       DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="fecha_vencimiento" HeaderText="Vencimiento" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="resultado"         HeaderText="Resultado"   />
@@ -77,7 +77,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="background:#1a1a2e;color:#e0e0e0;border:1px solid #e94560;">
             <div class="modal-header" style="border-bottom:1px solid #2a2a4a;">
-                <h5 class="modal-title"><i class="bi bi-heart-pulse me-2" style="color:#e94560;"></i>Registrar Certificado Médico</h5>
+                <h5 class="modal-title"><i class="bi bi-heart-pulse me-2" style="color:#e94560;"></i>Registrar Certificado MÃ©dico</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -89,7 +89,7 @@
                     <div class="col-md-6">
                         <label class="form-label">Tipo de examen *</label>
                         <asp:DropDownList ID="ddlTipoExamen" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
                             <asp:ListItem Value="CLASE_1">Clase 1 (Pilotos comerciales)</asp:ListItem>
                             <asp:ListItem Value="CLASE_2">Clase 2 (Pilotos privados)</asp:ListItem>
                             <asp:ListItem Value="CLASE_3">Clase 3 (Controladores)</asp:ListItem>
@@ -97,11 +97,11 @@
                         </asp:DropDownList>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Médico responsable</label>
+                        <label class="form-label">MÃ©dico responsable</label>
                         <asp:TextBox ID="txtMedico" runat="server" CssClass="form-control bg-dark text-light border-secondary" />
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Centro médico</label>
+                        <label class="form-label">Centro mÃ©dico</label>
                         <asp:TextBox ID="txtCentroMedico" runat="server" CssClass="form-control bg-dark text-light border-secondary" />
                     </div>
                     <div class="col-md-4">
@@ -115,7 +115,7 @@
                     <div class="col-md-4">
                         <label class="form-label">Resultado *</label>
                         <asp:DropDownList ID="ddlResultado" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
                             <asp:ListItem Value="APTO">Apto</asp:ListItem>
                             <asp:ListItem Value="APTO_CON_RESTRICCIONES">Apto con restricciones</asp:ListItem>
                             <asp:ListItem Value="NO_APTO">No apto</asp:ListItem>

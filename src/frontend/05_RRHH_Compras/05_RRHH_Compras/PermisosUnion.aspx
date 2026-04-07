@@ -1,10 +1,10 @@
-<%@ Page Title="Permisos Sindicales" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="PermisosUnion.aspx.vb" Inherits="PermisosUnion" %>
+﻿<%@ Page Title="Permisos Sindicales" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="PermisosUnion.aspx.vb" Inherits="PermisosUnion" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div><h2 class="mb-1"><i class="bi bi-people me-2" style="color:#e94560;"></i>Permisos Sindicales</h2>
-        <p class="text-muted mb-0">Control de permisos de la unión / sindicato</p></div>
+        <p class="text-muted mb-0">Control de permisos de la uniÃ³n / sindicato</p></div>
     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalNuevo"><i class="bi bi-plus-lg me-1"></i> Nuevo permiso</button>
 </div>
 
@@ -34,7 +34,7 @@
                 <asp:BoundField DataField="motivo"          HeaderText="Motivo"       />
                 <asp:BoundField DataField="fecha_inicio"    HeaderText="Inicio"       DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="fecha_fin"       HeaderText="Fin"          DataFormatString="{0:dd/MM/yyyy}" />
-                <asp:BoundField DataField="dias"            HeaderText="Días"         />
+                <asp:BoundField DataField="dias"            HeaderText="DÃ­as"         />
                 <asp:BoundField DataField="estado"          HeaderText="Estado"       />
             </Columns>
         </asp:GridView>
@@ -54,10 +54,10 @@
                         <asp:DropDownList ID="ddlEmpleado" runat="server" CssClass="form-select bg-dark text-light border-secondary" /></div>
                     <div class="col-md-6"><label class="form-label">Tipo de permiso *</label>
                         <asp:DropDownList ID="ddlTipoPermiso" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="">— Seleccionar —</asp:ListItem>
-                            <asp:ListItem Value="REUNION">Reunión sindical</asp:ListItem>
-                            <asp:ListItem Value="NEGOCIACION">Negociación colectiva</asp:ListItem>
-                            <asp:ListItem Value="CAPACITACION">Capacitación sindical</asp:ListItem>
+                            <asp:ListItem Value="">â€” Seleccionar â€”</asp:ListItem>
+                            <asp:ListItem Value="REUNION">ReuniÃ³n sindical</asp:ListItem>
+                            <asp:ListItem Value="NEGOCIACION">NegociaciÃ³n colectiva</asp:ListItem>
+                            <asp:ListItem Value="CAPACITACION">CapacitaciÃ³n sindical</asp:ListItem>
                             <asp:ListItem Value="OTRO">Otro</asp:ListItem>
                         </asp:DropDownList></div>
                     <div class="col-md-3"><label class="form-label">Fecha inicio *</label>

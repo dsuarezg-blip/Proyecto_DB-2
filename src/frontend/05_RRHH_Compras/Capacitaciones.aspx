@@ -1,4 +1,4 @@
-<%@ Page Title="Capacitaciones" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Capacitaciones.aspx.vb" Inherits="Capacitaciones" %>
+﻿<%@ Page Title="Capacitaciones" Language="VB" MasterPageFile="~/RRHH.Master" AutoEventWireup="false" CodeFile="Capacitaciones.aspx.vb" Inherits="Capacitaciones" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -31,11 +31,11 @@
             <Columns>
                 <asp:BoundField DataField="nombre_empleado" HeaderText="Empleado"    />
                 <asp:BoundField DataField="nombre_curso"    HeaderText="Curso"       />
-                <asp:BoundField DataField="institucion"     HeaderText="Institución" />
+                <asp:BoundField DataField="institucion"     HeaderText="InstituciÃ³n" />
                 <asp:BoundField DataField="fecha_inicio"    HeaderText="Inicio"      DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="fecha_fin"       HeaderText="Fin"         DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="horas"           HeaderText="Horas"       />
-                <asp:BoundField DataField="calificacion"    HeaderText="Calificación"/>
+                <asp:BoundField DataField="calificacion"    HeaderText="CalificaciÃ³n"/>
                 <asp:BoundField DataField="aprobado"        HeaderText="Aprobado"    />
             </Columns>
         </asp:GridView>
@@ -46,7 +46,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="background:#1a1a2e;color:#e0e0e0;border:1px solid #e94560;">
             <div class="modal-header" style="border-bottom:1px solid #2a2a4a;">
-                <h5 class="modal-title">Registrar Capacitación</h5>
+                <h5 class="modal-title">Registrar CapacitaciÃ³n</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -55,7 +55,7 @@
                         <asp:DropDownList ID="ddlEmpleado" runat="server" CssClass="form-select bg-dark text-light border-secondary" /></div>
                     <div class="col-md-6"><label class="form-label">Nombre del curso *</label>
                         <asp:TextBox ID="txtCurso" runat="server" CssClass="form-control bg-dark text-light border-secondary" /></div>
-                    <div class="col-md-6"><label class="form-label">Institución</label>
+                    <div class="col-md-6"><label class="form-label">InstituciÃ³n</label>
                         <asp:TextBox ID="txtInstitucion" runat="server" CssClass="form-control bg-dark text-light border-secondary" /></div>
                     <div class="col-md-6"><label class="form-label">Tipo</label>
                         <asp:DropDownList ID="ddlTipo" runat="server" CssClass="form-select bg-dark text-light border-secondary">
@@ -69,11 +69,11 @@
                         <asp:TextBox ID="txtFechaFin" runat="server" TextMode="Date" CssClass="form-control bg-dark text-light border-secondary" /></div>
                     <div class="col-md-4"><label class="form-label">Horas</label>
                         <asp:TextBox ID="txtHoras" runat="server" TextMode="Number" CssClass="form-control bg-dark text-light border-secondary" /></div>
-                    <div class="col-md-6"><label class="form-label">Calificación</label>
+                    <div class="col-md-6"><label class="form-label">CalificaciÃ³n</label>
                         <asp:TextBox ID="txtCalificacion" runat="server" TextMode="Number" CssClass="form-control bg-dark text-light border-secondary" placeholder="0-100" /></div>
-                    <div class="col-md-6"><label class="form-label">¿Aprobó?</label>
+                    <div class="col-md-6"><label class="form-label">Â¿AprobÃ³?</label>
                         <asp:DropDownList ID="ddlAprobado" runat="server" CssClass="form-select bg-dark text-light border-secondary">
-                            <asp:ListItem Value="S">Sí</asp:ListItem>
+                            <asp:ListItem Value="S">SÃ­</asp:ListItem>
                             <asp:ListItem Value="N">No</asp:ListItem>
                         </asp:DropDownList></div>
                 </div>
