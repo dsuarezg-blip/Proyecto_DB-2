@@ -1,6 +1,6 @@
-﻿<%@ Master Language="VB" AutoEventWireup="false" 
-           CodeBehind="RRHH.Master.vb" 
-           Inherits="ProyectoAeroGT_Modulo3y4.RRHH" %>
+<%@ Master Language="VB" AutoEventWireup="false"
+           CodeFile="RRHH.Master.vb"
+           Inherits="RRHH" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -19,49 +19,49 @@
             position: fixed;
             top: 0; left: 0;
             padding-top: 20px;
-            background-color: #1a1a2e;
+            background-color: #0d2040;
             z-index: 1000;
             width: 250px;
+        }
+        .sidebar-brand {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 10px;
         }
         .sidebar a {
             color: #adb5bd;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 9px 20px;
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.2s ease-in-out;
         }
         .sidebar a:hover, .sidebar a.active {
             color: #fff;
-            background-color: #16213e;
-            border-left: 4px solid #e94560;
-            padding-left: 16px;
+            background-color: rgba(255,255,255,0.08);
+            border-left: 3px solid #c5a059;
+            padding-left: 17px;
         }
         .sidebar-heading {
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.05rem;
-        }
-        .sidebar-brand {
-            color: white;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            padding: 0 20px;
-        }
-        .modulo-badge {
-            background: #e94560;
-            color: white;
             font-size: 0.7rem;
-            padding: 2px 10px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-top: 4px;
+            letter-spacing: 0.08rem;
+            color: #6c757d;
+            padding: 12px 20px 4px;
         }
-        .content { margin-left: 250px; padding: 20px; }
-        .navbar {
-            background-color: #ffffff !important;
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .topbar {
+            background-color: #ffffff;
             border-bottom: 1px solid #dee2e6;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         }
         .card-mod {
             border: none;
@@ -70,132 +70,160 @@
             margin-bottom: 24px;
         }
         .card-header-mod {
-            background-color: #1a1a2e;
+            background-color: #0d2040;
             color: white;
             border-radius: 10px 10px 0 0 !important;
             padding: 12px 20px;
             font-weight: 600;
         }
-        .tabla-mod thead th { background-color: #1a1a2e; color: white; border: none; }
-        .tabla-mod tbody tr:hover { background-color: #fce4ec; }
+        .tabla-mod thead th { background-color: #0d2040; color: white; border: none; }
+        .tabla-mod tbody tr:hover { background-color: #fef9ec; }
         .alerta { padding: 10px 16px; border-radius: 6px; font-size: 13px; margin-top: 12px; display: none; }
         .alerta-exito { background: #e8f5e9; color: #2e7d32; border-left: 4px solid #2e7d32; display: block; }
         .alerta-error { background: #ffebee; color: #c62828; border-left: 4px solid #c62828; display: block; }
+
+        /* TOAST SYSTEM */
+        .toast-container-custom {
+            position: fixed; top: 20px; right: 20px;
+            z-index: 99999; min-width: 320px;
+        }
+        .toast-custom {
+            border-radius: 10px; border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin-bottom: 10px; overflow: hidden;
+        }
+        .toast-custom .toast-header { border-bottom: none; padding: 10px 14px 6px; font-weight: 600; font-size: 0.875rem; }
+        .toast-custom .toast-body   { padding: 6px 14px 12px; font-size: 0.875rem; }
+        .toast-success .toast-header { background-color: #d1e7dd; color: #0a3622; }
+        .toast-success .toast-body   { background-color: #f0faf4; color: #0a3622; }
+        .toast-danger  .toast-header { background-color: #f8d7da; color: #58151c; }
+        .toast-danger  .toast-body   { background-color: #fff5f5; color: #58151c; }
+        .toast-warning .toast-header { background-color: #fff3cd; color: #664d03; }
+        .toast-warning .toast-body   { background-color: #fffdf0; color: #664d03; }
+        .toast-info    .toast-header { background-color: #cff4fc; color: #055160; }
+        .toast-info    .toast-body   { background-color: #f0fbff; color: #055160; }
     </style>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="d-flex">
 
+        <div class="toast-container-custom" id="toastContainer"></div>
+
+        <div class="d-flex">
             <!-- SIDEBAR -->
             <div class="sidebar">
                 <div class="sidebar-brand">
-                    <h5 class="mb-0">
-                        <i class="bi bi-airplane-engines" style="color:#e94560;"></i> AeroGT
+                    <h5 class="text-white mb-0 fw-bold">
+                        <i class="bi bi-airplane-engines me-2" style="color:#c5a059;"></i>AeroGT
                     </h5>
-                    <span class="modulo-badge">Módulo 3 — RRHH</span>
+                    <small style="color:#c5a059;font-size:0.7rem;">Módulo 3 — RRHH</small>
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="Dashboard.aspx">
-                            <i class="bi bi-speedometer2 me-2"></i>Dashboard
-                        </a>
+                        <a href="Dashboard.aspx"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
                     </li>
-                    <li>
-                        <h6 class="sidebar-heading px-3 mt-3 mb-1 text-muted">
-                            Empleados
-                        </h6>
+                    <div class="sidebar-heading">Empleados</div>
+                    <li class="nav-item">
+                        <a href="Empleados.aspx"><i class="bi bi-people me-2"></i>Empleados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Empleados.aspx">
-                            <i class="bi bi-people me-2"></i>Empleados
-                        </a>
+                        <a href="Contratos.aspx"><i class="bi bi-file-earmark-text me-2"></i>Contratos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Contratos.aspx">
-                            <i class="bi bi-file-earmark-text me-2"></i>Contratos
-                        </a>
+                        <a href="Licencias.aspx"><i class="bi bi-card-checklist me-2"></i>Licencias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Licencias.aspx">
-                            <i class="bi bi-card-checklist me-2"></i>Licencias
-                        </a>
-                    </li>
-                    <li>
-                        <h6 class="sidebar-heading px-3 mt-3 mb-1 text-muted">
-                            Organización
-                        </h6>
+                        <a href="CertMedicas.aspx"><i class="bi bi-heart-pulse me-2"></i>Cert. Médicas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Departamentos.aspx">
-                            <i class="bi bi-diagram-3 me-2"></i>Departamentos
-                        </a>
+                        <a href="HistSalarial.aspx"><i class="bi bi-currency-dollar me-2"></i>Hist. Salarial</a>
+                    </li>
+                    <div class="sidebar-heading">Organización</div>
+                    <li class="nav-item">
+                        <a href="Departamentos.aspx"><i class="bi bi-diagram-3 me-2"></i>Departamentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Puestos.aspx">
-                            <i class="bi bi-briefcase me-2"></i>Puestos
-                        </a>
+                        <a href="Puestos.aspx"><i class="bi bi-briefcase me-2"></i>Puestos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Turnos.aspx">
-                            <i class="bi bi-clock me-2"></i>Turnos
-                        </a>
-                    </li>
-                    <li>
-                        <h6 class="sidebar-heading px-3 mt-3 mb-1 text-muted">
-                            Operaciones RRHH
-                        </h6>
+                        <a href="Turnos.aspx"><i class="bi bi-clock me-2"></i>Turnos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Asistencia.aspx">
-                            <i class="bi bi-calendar-check me-2"></i>Asistencia
-                        </a>
+                        <a href="EquipoProteccion.aspx"><i class="bi bi-shield-check me-2"></i>Equipo Protección</a>
+                    </li>
+                    <div class="sidebar-heading">Operaciones</div>
+                    <li class="nav-item">
+                        <a href="Asistencia.aspx"><i class="bi bi-calendar-check me-2"></i>Asistencia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Tripulacion.aspx">
-                            <i class="bi bi-airplane me-2"></i>Tripulación
-                        </a>
+                        <a href="Tripulacion.aspx"><i class="bi bi-airplane me-2"></i>Tripulación</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Viaticos.aspx">
-                            <i class="bi bi-cash me-2"></i>Viáticos
-                        </a>
-                    </li>
-                    <li>
-                        <h6 class="sidebar-heading px-3 mt-3 mb-1 text-muted">
-                            Reportes
-                        </h6>
+                        <a href="Viaticos.aspx"><i class="bi bi-cash me-2"></i>Viáticos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Reportes.aspx">
-                            <i class="bi bi-bar-chart me-2"></i>Reportes
-                        </a>
+                        <a href="PermisosUnion.aspx"><i class="bi bi-people me-2"></i>Permisos Sindicales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ExpedDisc.aspx"><i class="bi bi-exclamation-triangle me-2"></i>Exped. Disciplinarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Capacitaciones.aspx"><i class="bi bi-mortarboard me-2"></i>Capacitaciones</a>
+                    </li>
+                    <div class="sidebar-heading">Sistema</div>
+                    <li class="nav-item">
+                        <a href="Usuarios.aspx"><i class="bi bi-person-badge me-2"></i>Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Roles.aspx"><i class="bi bi-shield-lock me-2"></i>Roles</a>
+                    </li>
+                    <div class="sidebar-heading">Reportes</div>
+                    <li class="nav-item">
+                        <a href="Reportes.aspx"><i class="bi bi-bar-chart me-2"></i>Reportes</a>
                     </li>
                 </ul>
             </div>
 
             <!-- CONTENIDO -->
             <div class="content flex-grow-1">
-                <nav class="navbar navbar-expand-lg mb-4 rounded shadow-sm px-3 py-2">
-                    <div class="container-fluid">
-                        <span class="navbar-brand fw-bold text-secondary">
-                            👥 Módulo 3 — Recursos Humanos
+                <div class="topbar d-flex justify-content-between align-items-center">
+                    <span class="fw-bold text-secondary">
+                        <i class="bi bi-people-fill me-2" style="color:#c5a059;"></i>Módulo 3 — Recursos Humanos
+                    </span>
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="small text-muted">
+                            <i class="bi bi-person-circle me-1"></i>
+                            <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
+                            &nbsp;<asp:Label ID="lblRol" runat="server" CssClass="badge" style="background-color:#c5a059;color:#000;"></asp:Label>
                         </span>
-                        <div class="d-flex align-items-center">
-                            <span class="navbar-text me-3 small">
-                                <i class="bi bi-person-circle"></i> Usuario
-                            </span>
-                            <a href="/Default.aspx" class="btn btn-outline-danger btn-sm">
-                                Salir
-                            </a>
-                        </div>
+                        <a href="/Default.aspx" class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-box-arrow-right me-1"></i>Salir
+                        </a>
                     </div>
-                </nav>
+                </div>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
             </div>
         </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function showToast(tipo, titulo, mensaje) {
+                var iconos = { 'success':'bi-check-circle-fill','danger':'bi-x-circle-fill','warning':'bi-exclamation-triangle-fill','info':'bi-info-circle-fill' };
+                var titulos = { 'success':titulo||'Éxito','danger':titulo||'Error','warning':titulo||'Advertencia','info':titulo||'Información' };
+                var id = 'toast_' + Date.now();
+                var html = '<div id="'+id+'" class="toast toast-custom toast-'+tipo+'" role="alert">'+
+                    '<div class="toast-header"><i class="bi '+iconos[tipo]+' me-2"></i>'+
+                    '<strong class="me-auto">'+titulos[tipo]+'</strong>'+
+                    '<button type="button" class="btn-close btn-close-sm" data-bs-dismiss="toast"></button></div>'+
+                    '<div class="toast-body">'+mensaje+'</div></div>';
+                document.getElementById('toastContainer').insertAdjacentHTML('beforeend', html);
+                var toastEl = document.getElementById(id);
+                var toast = new bootstrap.Toast(toastEl, { delay: tipo==='danger' ? 8000 : 4000 });
+                toast.show();
+                toastEl.addEventListener('hidden.bs.toast', function() { toastEl.remove(); });
+            }
+        </script>
     </form>
 </body>
 </html>
